@@ -1,0 +1,46 @@
+body.login {
+  display: flex;
+  align-items: center;
+}
+
+body.login #login {
+  display: grid;
+  align-items: center;
+  padding: 0;
+}
+
+body.login #login h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100%;
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+body.login #login h1 a {
+  display: block;
+  width: auto;
+  min-height: 20vh;
+  margin: 0;
+  font-size: inherit;
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.login #login form {
+  margin-top: 0;
+  border-style: none;
+}
+
+body.login .message, body.login #login_error {
+  margin-bottom: 0;
+}
+
+body.login img.login_errors {
+  width: 3em;
+  margin-right: 1em;
+  object-fit: contain;
+}
+/*# sourceMappingURL=style.css.map */
