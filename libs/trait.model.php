@@ -10,4 +10,12 @@ trait LOWF_Model{
         $options = get_option('LOWF_options',false);
         return $options?json_decode($options):json_decode($json);
     }
+
+    public static function obtainPath(string $file='libs'):string{
+        return wp_normalize_path(plugin_dir_path(LOWF_ROOTFILE)."$file/");
+    }
+
+    public static function obtainURL(string $url='public/css'):string{
+        return plugin_dir_url(LOWF_ROOTFILE)."$url/";
+    }
 }

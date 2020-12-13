@@ -34,7 +34,7 @@ class LOWF_Escritorio{
                 update_option("LOWF_options",json_encode($this->options));
                 
         }   
-        require_once(LOWF_VIEWS.'dashboard.php');
+        require_once(LOWF_Model::obtainPath('views').'dashboard.php');
     }
 
     /**
@@ -102,7 +102,7 @@ class LOWF_Escritorio{
     function wfEnqueueScript():void{
         wp_enqueue_media();
         // Enqueue custom js file.
-        wp_register_script( 'wk-admin-script', LOWF_JS_URL.'media.js' );
+        wp_register_script( 'wk-admin-script', LOWF_Model::obtainURL('public/js').'media.js' );
         wp_enqueue_script( 'wk-admin-script' );
     }
 

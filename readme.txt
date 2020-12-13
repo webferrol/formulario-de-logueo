@@ -26,4 +26,8 @@ Login form wp-admin
 *Release Date - 10 December 2020*
 Change CSS
 
+= 1.2.5 =
+*Release Date - 13 December 2020*
+Delete constants LOWF_LIBS, LOWF_VIEWS, LOWF_LANGUAGES, LOWF_CSS_URL, LOWF_JS_URL, LOWF_IMAGES_URL
+
 == Upgrade Notice ==

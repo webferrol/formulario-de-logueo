@@ -1,7 +1,7 @@
 <?php
 require_once( ABSPATH . 'wp-includes/pluggable.php' );//fichero para capacidades de los usuarios
 if(current_user_can( 'administrator' ))
-    require_once(LOWF_LIBS.'class.escritorio.php');
+    require_once(LOWF_Model::obtainPath().'class.escritorio.php');
 
 class LOWF_Principal{
     use LOWF_Model;
@@ -40,11 +40,11 @@ class LOWF_Principal{
     
     public function cargarTraduccion():void{
         $mo = get_locale();
-        load_textdomain( "logueo", path_join( LOWF_LANGUAGES, "$mo.mo" ) );
+        load_textdomain( "logueo", path_join( LOWF_Model::obtainPath('languages'), "$mo.mo" ) );
     }
     
     public function ocultarMensajes():string{
-        return "<img class=\"login_errors\" alt=\"".__("No, no, no","logueo")."\" src=\"".esc_url(LOWF_IMAGES_URL."nonono.svg")."\">".__("No, no, no","logueo");
+        return "<img class=\"login_errors\" alt=\"".__("No, no, no","logueo")."\" src=\"".esc_url(LOWF_Model::obtainURL('public/images')."nonono.svg")."\">".__("No, no, no","logueo");
     }
 
     public  function urlCabeceraLogin():string{
@@ -57,13 +57,13 @@ class LOWF_Principal{
 
     public function hojaDeEstilos():void{
         //registro de los estilos 
-        wp_register_style('logocss',LOWF_CSS_URL.'style.min.css');
+        wp_register_style('logocss',LOWF_Model::obtainURL().'style.min.css');
         //invocación de los estilos
         wp_enqueue_style('logocss');        
     }
 
     public function styleImage():void{
-        $backgroundImage = empty($this->options->image_url)?"background-image:url(".LOWF_IMAGES_URL."logo.webp);": "background-image:url({$this->options->image_url})";
+        $backgroundImage = empty($this->options->image_url)?"background-image:url(".LOWF_Model::obtainURL('public/images')."logo.webp);": "background-image:url({$this->options->image_url})";
         echo "<style>body.login #login h1 a {".$backgroundImage."}</style>";
     }
 
@@ -82,8 +82,8 @@ class LOWF_Principal{
     public static function transientData():void{
         set_transient('transient',true,500);
     }
-    public static function activarPlugin(string $file):void{
-        register_activation_hook( $file, ['LOWF_Principal','transientData']);
+    public static function activarPlugin():void{
+        register_activation_hook(LOWF_ROOTFILE, ['LOWF_Principal','transientData']);
         add_action('admin_notices',['LOWF_Principal','hookAdminNotices']);
     }
 
@@ -91,15 +91,15 @@ class LOWF_Principal{
     public static function pluginWfDesactivation():void{        
         //delete_option("LOWF_options");
     }
-    public static function desactivarPlugin(string $file):void{
-        register_deactivation_hook( $file, ['LOWF_Principal','pluginWfDesactivation']);
+    public static function desactivarPlugin():void{
+        register_deactivation_hook(LOWF_ROOTFILE, ['LOWF_Principal','pluginWfDesactivation']);
     }
 
     //Desinstalación del plugin
     public static function pluginWfDesinstalar():void{        
         delete_option("LOWF_options");
     }
-    public static function desinstalarPlugin(string $file):void{
-        register_uninstall_hook( $file, ['LOWF_Principal','pluginWfDesinstalar']);
+    public static function desinstalarPlugin():void{
+        register_uninstall_hook(LOWF_ROOTFILE, ['LOWF_Principal','pluginWfDesinstalar']);
     }    
 }
