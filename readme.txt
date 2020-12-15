@@ -1,9 +1,10 @@
 === Login to WordPress Dashboard Admin Area ===
 Contributors: xurxo
+Donate link: http://www.webferrol.com
 Tags: login, wp-admin, admin, wp-login
-PHP Version: 7.3 or higher
 Requires at least: 5.5
 Tested up to: 5.6
+Requires PHP: 7.2
 Stable tag: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,18 +17,26 @@ Custom Login plugin allows you to design some characteristics of the access logi
 
 Upload the LoginWebFerrol plugin to your blog, activate it, and then enter your WordPress dashboard.
 
-== Screenshots ==
-
-Login form wp-admin
-
 == Changelog ==
 
 = 1.2.4 =
 *Release Date - 10 December 2020*
-Change CSS
-
-= 1.2.5 =
-*Release Date - 13 December 2020*
-Delete constants LOWF_LIBS, LOWF_VIEWS, LOWF_LANGUAGES, LOWF_CSS_URL, LOWF_JS_URL, LOWF_IMAGES_URL
 
 == Upgrade Notice ==
+
+### 1.2.5 ###
+Delete constants LOWF_LIBS, LOWF_VIEWS, LOWF_LANGUAGES, LOWF_CSS_URL, LOWF_JS_URL, LOWF_IMAGES_URL
+
+### 1.2.6 ###
+Create method obtainPath in trait.model.php
+
+== Screenshots ==
+
+1. wp-admin Area
+2. Settings in Wordpress Dashboard 
+
+== Frequently Asked Questions ==
+
+= Why this plugin =
+
+To change text url, image url && CSS from wp-admin area

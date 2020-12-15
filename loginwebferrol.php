@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit; //defined() NO es define()
 * Plugin Name: Formulario de Logueo
 * Plugin URI: https://www.webferrol.com/wordpress/plugins/loginwebferrol
 * Description: Modificación de la plantilla de acceso de WordPress. Los ajustes se realizarán en el Widget del Escritorio de WordPress. Versión mínima recomenda PHP 7.3
-* Version: 1.2.5
+* Version: 1.2.6
 * Requires PHP: 7.3
 * Author: Xurxo González Tenreiro
 * Author URI: https://www.webferrol.com
