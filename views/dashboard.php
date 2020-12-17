@@ -1,5 +1,5 @@
-<form action="<?=esc_url($_SERVER['PHP_SELF'].'#admin_logueo_id')?>" method="post">
-   <legend class="title"><?=esc_html(__("Access settings","logueo"))?></legend>
+<form id="LOWF_form" action="<?=esc_url($_SERVER['PHP_SELF'].'#admin_logueo_id')?>" method="post">
+   <h3 class="title"><?=esc_html(__("Access settings","logueo"))?></h3>
    <div class="login">
     <ul>
         <li class="input-text-wrap">
@@ -32,7 +32,6 @@
                 </ul>
         </li>       
     </ul>
-
     <?php
         if(is_wp_error($this->errores)):
         foreach($this->errores->get_error_messages() as $message):?>
@@ -43,7 +42,5 @@
     ?>
    </div>
    <?php wp_nonce_field("logueo","logueo_nonce_field");?>
-   <input class="button button-primary" type="submit" value="<?=esc_attr(__("Update","logueo"))?>">
-   
-   
+   <input class="button button-primary" type="submit" value="<?=esc_attr(__("Update","logueo"))?>">   
 </form>
