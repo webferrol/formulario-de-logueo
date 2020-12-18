@@ -18,6 +18,15 @@ $minWidth : 360px;
 		
 // 	}
 // }
+
+html{
+	box-sizing: border-box;
+} 
+*, 
+*:before,
+*:after{
+	box-sizing: inherit; 
+}
 body.login{
 	display: flex;
 	align-items: center;	
