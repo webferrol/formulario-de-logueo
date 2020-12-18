@@ -99,11 +99,14 @@ class LOWF_Escritorio{
      *
      * @return void
      */
-    function wfEnqueueScript():void{
+    function wfEnqueueScript():void{    
+        //Media
         wp_enqueue_media();
-        // Enqueue custom js file.
         wp_register_script( 'wk-admin-script', LOWF_Model::obtainURL('public/js').'media.js' );
         wp_enqueue_script( 'wk-admin-script' );
+        //Form
+        // wp_enqueue_script('jquery-script',LOWF_Model::obtainURL('public/js').'jquery.js');
+        // wp_enqueue_script('jquery-validate','https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js');
     }
 
     /**

@@ -30,6 +30,9 @@ Delete constants LOWF_LIBS, LOWF_VIEWS, LOWF_LANGUAGES, LOWF_CSS_URL, LOWF_JS_UR
 ### 1.2.6 ###
 Create method obtainPath in trait.model.php
 
+### 1.2.7 ###
+css change. Property box-sizing
+
 == Screenshots ==
 
 1. wp-admin Area
