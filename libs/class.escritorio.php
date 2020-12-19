@@ -95,7 +95,7 @@ class LOWF_Escritorio{
     }
 
     /**
-     * OPEN MEDIA WordPress. Load script JS
+     * OPEN MEDIA WordPress & JQuery. Load script JS
      *
      * @return void
      */
@@ -104,36 +104,38 @@ class LOWF_Escritorio{
         wp_enqueue_media();
         wp_register_script( 'wk-admin-script', LOWF_Model::obtainURL('public/js').'media.js' );
         wp_enqueue_script( 'wk-admin-script' );
-        //Form
-        // wp_enqueue_script('jquery-script',LOWF_Model::obtainURL('public/js').'jquery.js');
-        // wp_enqueue_script('jquery-validate','https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js');
+        
 
-        //Enqueue your Javascript (this assumes your javascript file is located in your plugin in an "public/js" directory)
+        //Carga de nuestro código JQuery (Asumimos que nuestro fichero de JavaScript se encuentra localizado en el directoiro raiz de nuestro plugin y dentro de la estructura "public/js")
         wp_enqueue_script('lowf_ajax',LOWF_Model::obtainURL('public/js').'jquery.js', array( 'jquery' ));
-        //Here we create a javascript object variable called "lowf_vars". We can access any variable in the array using lowf_vars.name_of_sub_variable
-        wp_localize_script( 'lowf_ajax', 'lowf_vars', 
-            array(
-            //To use this variable in javascript use "lowf_vars.ajaxurl"
+        //A continuación creamos una variable javascript de tipo objeto. En este caso lo llamé "lowf_vars". Accederemos a cualquier varible en array utilizando la notación del punto utilizando lowf_vars.nombre_de_campo
+        wp_localize_script( 
+            'lowf_ajax',
+            'lowf_vars', //objeto donde almacenamos las variables
+            [
+            //Para utilizar esta variable en javascript escribe "lowf_vars.ajaxurl"
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
-
-            ) 
+            'images' => LOWF_Model::obtainURL('public/images')
+            ],             
         );  
     }
 
 
 //This is your Ajax callback function
-function your_ajax_callback_function_name(){
+function ajaxCallbackFunction(){
 
     //Get the post data 
     $my_var = [];
-    if(!$this->validateForm()){//Si no hay número de mensajes de error validamos (por tanto Si no 0)
-            update_option("LOWF_options",json_encode($this->options));
-            $my_var = [
-                        "updated" => true,
-                        "message" => "OK"
-                      ];
-    }else{
-        $my_var = $this->errores->get_error_messages();
+    if(check_admin_referer('logueo','logueo_nonce_field')){
+        if(!$this->validateForm()){//Si no hay número de mensajes de error validamos (por tanto Si no 0)
+                update_option("LOWF_options",json_encode($this->options));
+                $my_var = [
+                            "updated" => true,
+                            "message" => "OK"
+                        ];
+        }else{
+            $my_var = $this->errores->get_error_messages();
+        }
     }
              
 
@@ -157,7 +159,7 @@ function your_ajax_callback_function_name(){
      */
     function cargarScripts():void{
         add_action("admin_enqueue_scripts",[$this,"wfEnqueueScript"]);
-        add_action( 'wp_ajax_' . 'wpa_49691', [$this,'your_ajax_callback_function_name']);
-        add_action( 'wp_ajax_nopriv_' . 'wpa_49691',[$this,'your_ajax_callback_function_name']);
+        add_action( 'wp_ajax_' . 'lowf_2704', [$this,'ajaxCallbackFunction']);
+        //add_action( 'wp_ajax_nopriv_' . 'lowf_2704',[$this,'ajaxCallbackFunction']); //Fires non-authenticated Ajax actions for logged-out users.
     }
 }

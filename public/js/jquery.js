@@ -15,10 +15,10 @@ jQuery(document).ready(function(){
 
         // Use ajax to do something...
         var postData = {
-            action: 'wpa_49691',
-            direccion: jQuery('#direccion').val(), 
-            texto: jQuery('#texto').val(),
-            image_url: jQuery("#image_url").val(),
+            action: 'lowf_2704',
+            direccion: jQuery('#direccion').val().trim(), 
+            texto: jQuery('#texto').val().trim(),
+            image_url: jQuery("#image_url").val().trim(),
             login_errors: jQuery("#login_errors").prop("checked")?1:0,
             css_webferrol: jQuery("#css_webferrol").prop("checked")?1:0,
             logueo_nonce_field: jQuery("#logueo_nonce_field").val()
@@ -32,6 +32,12 @@ jQuery(document).ready(function(){
             data: postData,
             dataType:"json",
             url: lowf_vars.ajaxurl,
+            beforeSend:()=>{
+                jQuery("#LOWF_form").append(`<img style="width:2em"  src="${lowf_vars.images}updating.gif" alt="loading..." id="lowf_imagen">`);
+            },
+            complete:()=>{
+                jQuery('#lowf_imagen').remove();
+            },
             //This fires when the ajax 'comes back' and it is valid json
             success: function (response) {
                 //console.log(response)
