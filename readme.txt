@@ -26,6 +26,10 @@ Upload the LoginWebFerrol plugin to your blog, activate it, and then enter your 
 *Release Date - 18 December 2020*
 * Add validation Ajax *
 
+= 1.2.9 =
+*Release Date - 19 December 2020*
+* Modify  Ajax functions and add updating.gif*
+
 == Upgrade Notice ==
 
 ### 1.2.5 ###
