@@ -106,9 +106,14 @@ class LOWF_Escritorio{
         wp_enqueue_script( 'wk-admin-script' );
         
 
-        //Carga de nuestro código JQuery (Asumimos que nuestro fichero de JavaScript se encuentra localizado en el directoiro raiz de nuestro plugin y dentro de la estructura "public/js")
-        wp_enqueue_script('lowf_ajax',LOWF_Model::obtainURL('public/js').'jquery.js', array( 'jquery' ));
-        //A continuación creamos una variable javascript de tipo objeto. En este caso lo llamé "lowf_vars". Accederemos a cualquier varible en array utilizando la notación del punto utilizando lowf_vars.nombre_de_campo
+        //Carga de nuestro código jQuery.
+        //Asumimos que nuestro fichero de JavaScript se encuentra localizado en el directoiro raiz de nuestro plugin y dentro de la estructura "public/js"
+        wp_enqueue_script('lowf_ajax',LOWF_Model::obtainURL('public/js').'jquery.js', ['jquery']);
+
+        //https://developer.wordpress.org/reference/functions/wp_localize_script/
+        //Como dice el codex trabaja con script ya añadido (primer parámetro)
+        //Acepta un array asociativo como parámetro creando un objeto JavaScript ("lowf_vars)
+        //Accederemos a cualquier valor utilizando la notación del punto: lowf_vars.nombre_de_campo
         wp_localize_script( 
             'lowf_ajax',
             'lowf_vars', //objeto donde almacenamos las variables
@@ -121,35 +126,25 @@ class LOWF_Escritorio{
     }
 
 
-//This is your Ajax callback function
+//Esta es la función callback de Ajax
 function ajaxCallbackFunction(){
-
-    //Get the post data 
-    $my_var = [];
+    //Creamos un arry de reenvío a JavaScript
+    $respuesta = [
+        "updated" => true,
+        "message" => "OK",
+    ];
     if(check_admin_referer('logueo','logueo_nonce_field')){
         if(!$this->validateForm()){//Si no hay número de mensajes de error validamos (por tanto Si no 0)
                 update_option("LOWF_options",json_encode($this->options));
-                $my_var = [
-                            "updated" => true,
-                            "message" => "OK",
-                        ];
         }else{
-            $my_var = $this->errores->get_error_messages();
+            $respuesta["updated"] = false;
+            $respuesta["message"] = $this->errores->get_error_messages();
         }
     }
-             
-
-    //Do your stuff here - maybe an update_option as you mentioned...
-
-    //Create the array we send back to javascript here
-    $array_we_send_back = $my_var;
-
-    //Make sure to json encode the output because that's what it is expecting
-    echo json_encode( $array_we_send_back );
-
-    //Make sure you die when finished doing ajax output.
-    die(); 
-
+    //Asegúrate de codificar la salida con codificación JSON
+    echo json_encode($respuesta);
+    //También nos cercioramos de matar el proceso cuando haya finalizado la respuestas Ajax
+    die();
 }
 
     /**

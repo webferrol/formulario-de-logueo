@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
                     deleteElement();
                 }else{
                     jQuery("#LOWF_form > .button-primary").before(`<p id="lowf_p" class="notice notice-warning"></p>`);                    
-                    jQuery("#lowf_p").append(`${response.join("")}`);
+                    jQuery("#lowf_p").append(`${response.message.join("")}`);
                 }
 
             }

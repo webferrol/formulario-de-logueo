@@ -15,10 +15,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en_US\n"
 
+# wpml-name: 710f85a585c335cbb185c40ad7626ee9
+#: <li> <label for="css_webferrol"> <input id="css_webferrol" type="checkbox"
+#: <?=$this->options->css_webferrol===1?"checked":""?> name="css_webferrol"
+#: ><?=esc_html_e("CSS WebFerrol","logueo")?></label>
+msgid "CSS WebFerrol"
+msgstr ""
+
+# wpml-name: 2b7c959e54297045c463db7b0d636148
+msgid "Hide login errors"
+msgstr ""
+
+# wpml-name: be53a0541a6d36f6ecb879fa2c584b08
+msgid "Image"
+msgstr ""
+
+# wpml-name: a51e764daf6a444acb334f5c555aba54
+msgid "Access settings"
+msgstr ""
+
+# wpml-name: 06933067aafd48425d67bcb01bba5cb6
+msgid "Update"
+msgstr ""
+
+# wpml-name: 1f98842c354dc496970446bce14f4c50
+msgid "Upload Image"
+msgstr ""
+
+# wpml-name: 2e33912db94b9420e8ab281fdb406076
+msgid "Your %s here"
+msgstr ""
+
+# wpml-name: 4a7b4dddc68eb9730787ef3c34d32db9
+msgid "Plugin Login WebFerrol activated"
+msgstr ""
+
+# wpml-name: 76591ac561c767b5a27d6eb0392fc672
+msgid "No, no, no"
+msgstr ""
+
+# wpml-name: f4f70727dc34561dfde1a3c529b6205c
+msgid "Settings"
+msgstr ""
+
+# wpml-name: 427b6d816d7fdd86cabe48d8180a3cc9
+msgid "Image URL"
+msgstr ""
+
+# wpml-name: 63a11faa3a692d4e00fa8e03bbe8a0d6
+msgid "Link text"
+msgstr ""
+
 # wpml-name: d6c061c3fca55091af09606b4a67fb3b
-#: $this->options->login_headertext = $_POST['texto']; $this->updated=false;
-#: $this->errores[]=wp_sprintf(__("<div>The field <strong>%s</strong> cannot be
-#: empty</div>","logueo"),__("Link text","logueo"));
 msgid "<div>The field <strong>%s</strong> cannot be empty</div>"
 msgstr ""
 
@@ -26,52 +74,8 @@ msgstr ""
 msgid "<div>The field <strong>%s</strong> is not valid</div>"
 msgstr ""
 
-# wpml-name: f4f70727dc34561dfde1a3c529b6205c
-msgid "Settings"
-msgstr ""
-
-# wpml-name: 2e33912db94b9420e8ab281fdb406076
-msgid "Your %s here"
-msgstr ""
-
-# wpml-name: 427b6d816d7fdd86cabe48d8180a3cc9
-msgid "Image URL"
-msgstr ""
-
-# wpml-name: 1f98842c354dc496970446bce14f4c50
-msgid "Upload Image"
-msgstr ""
-
-# wpml-name: be53a0541a6d36f6ecb879fa2c584b08
-msgid "Image"
-msgstr ""
-
-# wpml-name: 2b7c959e54297045c463db7b0d636148
-msgid "Hide login errors"
-msgstr ""
-
-# wpml-name: 4a7b4dddc68eb9730787ef3c34d32db9
-msgid "Plugin Login WebFerrol activated"
-msgstr ""
-
-# wpml-name: 63a11faa3a692d4e00fa8e03bbe8a0d6
-msgid "Link text"
-msgstr ""
-
-# wpml-name: 06933067aafd48425d67bcb01bba5cb6
-msgid "Update"
-msgstr ""
-
 # wpml-name: af19fceba18ff2f73a0e67bdb530ff5c
 msgid "Link address (URL)"
-msgstr ""
-
-# wpml-name: a51e764daf6a444acb334f5c555aba54
-msgid "Access settings"
-msgstr ""
-
-# wpml-name: 76591ac561c767b5a27d6eb0392fc672
-msgid "No, no, no"
 msgstr ""
 
 # wpml-name: 7764d36286cd1fe4eda2196372a40f92
