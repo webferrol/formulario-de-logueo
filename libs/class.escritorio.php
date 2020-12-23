@@ -115,7 +115,7 @@ class LOWF_Escritorio{
             [
             //Para utilizar esta variable en javascript escribe "lowf_vars.ajaxurl"
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'images' => LOWF_Model::obtainURL('public/images')
+            'images' => LOWF_Model::obtainURL('public/images'),
             ],             
         );  
     }
@@ -131,7 +131,7 @@ function ajaxCallbackFunction(){
                 update_option("LOWF_options",json_encode($this->options));
                 $my_var = [
                             "updated" => true,
-                            "message" => "OK"
+                            "message" => "OK",
                         ];
         }else{
             $my_var = $this->errores->get_error_messages();
