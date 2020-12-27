@@ -1,7 +1,7 @@
-=== Login to WordPress Dashboard Admin Area ===
-Contributors: xurxo
+=== Setting up the WordPress login template ===
+Contributors: Xurxo González Tenreiro
 Donate link: http://www.webferrol.com
-Tags: login, wp-admin, admin, wp-login
+Tags: login, wp-admin, admin, wp-login, login template
 Requires at least: 5.5
 Tested up to: 5.6
 Requires PHP: 7.2
@@ -34,6 +34,14 @@ Upload the LoginWebFerrol plugin to your blog, activate it, and then enter your 
 *Release Date - 23 December 2020*
 *update translate, debug js and escape html*
 
+= 1.3.1 =
+*Release Date - 26 December 2020*
+*Add field. Set logo of WordPress, add translations*
+
+= 1.3.3 =
+*Release Date - 27 December 2020*
+*Repair errors*
+
 == Upgrade Notice ==
 
 ### 1.2.5 ###
@@ -54,4 +62,4 @@ css change. Property box-sizing
 
 = Why this plugin =
 
-To change text url, image url && CSS from wp-admin area
+Change the text url, image url of the login page from Dashboard area

@@ -7,21 +7,34 @@ trait LOWF_Model{
      */
     function WFgetOptions():?object{      
         $options = get_option('LOWF_options',false);        
-        return $options?json_decode($options):json_decode(LOWF_Model::getJSON());
+        return $options?json_decode($options):json_decode(json_encode(self::getData()));
     }
+
+    
     /**
      * Obtener el objeto de un json por defecto por si no existe los valores en la tabla prefix_options
      *
      * @return object
      */
-    public static function getJSON():string{
-        return json_encode([
+    public static function getData():array{
+        return [
             "login_headerurl"   =>  "https://www.webferrol.com",
             "login_headertext"  =>  "Graciñas por contactar con WebFerrol",
             "login_errors"  =>  0,
+            "logo_wordpress" => 0,
             "css_webferrol" =>  1,
             "image_url" =>  "",
-        ]); 
+        ]; 
+    }
+    /**
+     * Actualizar datos existentes en la tabla prefix_options
+     *
+     * @return void
+     */
+    public static function updateOptions():void{
+        $options = get_option('LOWF_options',false);
+        if($options)
+            update_option('LOWF_options',json_encode(array_merge(self::getData(),(array)json_decode($options))));
     }
 
     /**

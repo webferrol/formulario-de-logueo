@@ -14,10 +14,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "X-Generator: Poedit 2.4.2\n"
 
+# wpml-name: 98d7db54df6f908d6c766e4da726eeca
+#: <li> <label for="logo_wordpress"> <input id="logo_wordpress" type="checkbox"
+#: <?=$this->options->logo_wordpress===1?"checked":""?> name="logo_wordpress"
+#: ><?=esc_html_e("Logo de WordPress","logueo")?></label>
+msgid "Logo de WordPress"
+msgstr "WordPress Logo"
+
+# wpml-name: e0aa021e21dddbd6d8cecec71e9cf564
+msgid "OK"
+msgstr "Todo bien"
+
 # wpml-name: 710f85a585c335cbb185c40ad7626ee9
-#: <li> <label for="css_webferrol"> <input id="css_webferrol" type="checkbox"
-#: <?=$this->options->css_webferrol===1?"checked":""?> name="css_webferrol"
-#: ><?=esc_html_e("CSS WebFerrol","logueo")?></label>
 msgid "CSS WebFerrol"
 msgstr "Hoja de estilos de WebFerrol"
 

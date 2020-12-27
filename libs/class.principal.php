@@ -13,7 +13,8 @@ class LOWF_Principal{
         
         if($this->options->css_webferrol)
             add_action('login_enqueue_scripts',[$this,'hojaDeEstilos']);
-        add_action('login_enqueue_scripts',[$this,'styleImage']);
+        if(!$this->options->logo_wordpress)
+            add_action('login_enqueue_scripts',[$this,'styleImage']);
 
         add_filter( 'plugin_action_links_formulario-de-logueo/loginwebferrol.php', [$this,'cargarEnlacesAccion'] );
         
@@ -87,8 +88,8 @@ class LOWF_Principal{
         add_action('admin_notices',['LOWF_Principal','hookAdminNotices']);
     }
 
-    //Desactivación plugin
-    public static function pluginWfDesactivation():void{        
+    //Desactivación plugin y posibles actualizaciones
+    public static function pluginWfDesactivation():void{    
         //delete_option("LOWF_options");
     }
     public static function desactivarPlugin():void{
@@ -101,5 +102,5 @@ class LOWF_Principal{
     }
     public static function desinstalarPlugin():void{
         register_uninstall_hook(LOWF_ROOTFILE, ['LOWF_Principal','pluginWfDesinstalar']);
-    }    
+    }  
 }

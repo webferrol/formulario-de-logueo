@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 
         event.preventDefault();
 
-        // Use ajax to do something...
+        //Recogemos las variables enviadas por método POST en un objeto
         var postData = {
             action: 'lowf_2704',
             direccion: jQuery('#direccion').val().trim(), 
@@ -21,12 +21,13 @@ jQuery(document).ready(function(){
             image_url: jQuery("#image_url").val().trim(),
             login_errors: jQuery("#login_errors").prop("checked")?1:0,
             css_webferrol: jQuery("#css_webferrol").prop("checked")?1:0,
-            logueo_nonce_field: jQuery("#logueo_nonce_field").val()
+            logo_wordpress: jQuery("#logo_wordpress").prop("checked")?1:0,
+            logueo_nonce_field: jQuery("#logueo_nonce_field").val(),
         }
 
         //console.log(postData);
 
-        //Ajax load more posts
+        //Ajax
         jQuery.ajax({
             type: "POST",
             data: postData,
@@ -38,7 +39,7 @@ jQuery(document).ready(function(){
             complete:()=>{
                 jQuery('#lowf_imagen').remove();
             },
-            //This fires when the ajax 'comes back' and it is valid json
+            //Si se responde la petición Ajax con objeto JSON  válido
             success: function (response) {
                 //console.log(response)
                 jQuery("#lowf_p").remove();
@@ -51,10 +52,9 @@ jQuery(document).ready(function(){
                 }
 
             }
-        //     //This fires when the ajax 'comes back' and it isn't valid json
+        //Si se responde la petición AJAX pero el objeto JSON no es válido
         }).fail(function (data) {
             console.log(data);
-        }); 
-
+        });
     });
 });

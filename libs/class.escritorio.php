@@ -50,6 +50,7 @@ class LOWF_Escritorio{
         $this->options->image_url = esc_url($_POST['image_url']);
         $this->options->login_errors = isset($_POST['login_errors']) && $_POST['login_errors']?1:0;
         $this->options->css_webferrol = isset($_POST['css_webferrol']) && $_POST['css_webferrol']?1:0;
+        $this->options->logo_wordpress = isset($_POST['logo_wordpress']) && $_POST['logo_wordpress']?1:0;
 
         /**
          * VALIDATE
@@ -131,7 +132,7 @@ function ajaxCallbackFunction(){
     //Creamos un arry de reenvío a JavaScript
     $respuesta = [
         "updated" => true,
-        "message" => "OK",
+        "message" => __("OK","logueo"),
     ];
     if(check_admin_referer('logueo','logueo_nonce_field')){
         if(!$this->validateForm()){//Si no hay número de mensajes de error validamos (por tanto Si no 0)

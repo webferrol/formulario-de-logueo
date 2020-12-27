@@ -29,6 +29,10 @@
                                 <label for="css_webferrol">
                                 <input  id="css_webferrol" type="checkbox" <?=$this->options->css_webferrol===1?"checked":""?>  name="css_webferrol" ><?=esc_html_e("CSS WebFerrol","logueo")?></label>
                         </li>
+                        <li>
+                                <label for="logo_wordpress">
+                                <input  id="logo_wordpress" type="checkbox" <?=$this->options->logo_wordpress===1?"checked":""?>  name="logo_wordpress" ><?=esc_html_e("Logo de WordPress","logueo")?></label>
+                        </li>
                 </ul>
         </li>       
     </ul>
