@@ -1,4 +1,7 @@
 <?php
+/**
+ * Carga del modelo de datos y de rutas (path o url)
+ */
 trait LOWF_Model{
     /**
      * Obtener los valors de prefix_options. En caso de no existir obtenemos los valores por defecto
@@ -10,7 +13,6 @@ trait LOWF_Model{
         return $options?json_decode($options):json_decode(json_encode(self::getData()));
     }
 
-    
     /**
      * Obtener el objeto de un json por defecto por si no existe los valores en la tabla prefix_options
      *
@@ -26,8 +28,14 @@ trait LOWF_Model{
             "image_url" =>  "",
         ]; 
     }
+
     /**
      * Actualizar datos existentes en la tabla prefix_options
+     * 
+     * Utilizar esta pregunta donde sea. La primera parte es porque get_plugin_data sólo está activa en la zona administrativa
+     * if(is_admin() && version_compare(get_plugin_data(LOWF_ROOTFILE)['Version'],LOWF_VERSION,'<')){
+     *       LOWF_Model::updateOptions();
+     * }
      *
      * @return void
      */
