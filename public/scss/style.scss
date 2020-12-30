@@ -43,12 +43,13 @@ body.login{
 		margin: 0;
 	}
 	#login{
-		width: 50vw;
 		display: grid;
 		//grid-template-columns: 1fr;
 		align-items: center;
 		padding: 0;
 		width: auto;
+		flex-basis: auto;
+		max-width: 400px;
 		&>div{
 			margin: 0;
 		}
