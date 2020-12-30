@@ -27,16 +27,29 @@ $minWidth : 360px;
 // *:after{
 // 	box-sizing: inherit; 
 // }
+html{
+	background-image: repeating-linear-gradient(45deg,rgba(#3f87a6,.2), #ebf8e1 15%, rgba(#f69d3c,.2) 20%);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
 body.login{
 	display: flex;
 	align-items: center;
-	justify-content: center;	
+	justify-content: center;
+	background-color: transparent;
+	&>div{
+		margin: 0;
+	}
 	#login{
 		display: grid;
 		//grid-template-columns: 1fr;
 		align-items: center;
 		padding: 0;
-		margin: 0;
+		&>div{
+			margin: 0;
+		}
 		h1{
 			margin-top: 0;
 			margin-bottom: 0;
@@ -55,6 +68,7 @@ body.login{
 				background-repeat: no-repeat;
 				background-position: center;	
 				//text-indent: 0;		//hay un text indent de -9999px	
+				border-radius: 0 0 0 1rem;
 			}
 		}
 		form{			
