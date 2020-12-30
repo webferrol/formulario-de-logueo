@@ -42,6 +42,9 @@ Upload the LoginWebFerrol plugin to your blog, activate it, and then enter your 
 *Release Date - 27 December 2020*
 *Repair errors*
 
+= 1.3.4 =
+*Change scss. Gradient background-image*
+
 == Upgrade Notice ==
 
 ### 1.2.5 ###
